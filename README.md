@@ -1,1 +1,1 @@
-# simulate-and-recover abababab
+Describe the results of the simulate-and-recover exercise and what can be concluded from it (in your own words, ~500 words).
