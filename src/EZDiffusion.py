@@ -1,6 +1,11 @@
 import numpy as np
 
 class EZDiffusion:
+    def parameters(self, v, a, t):
+        self.v = v
+        self.a = a
+        self.t = t
+    
     def forward(v, a, t):
         y = np.exp(-v * a)
         R_pred = 1 / (1 + y)
