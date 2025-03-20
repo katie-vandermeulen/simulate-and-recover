@@ -1,7 +1,9 @@
-Describe the results of the simulate-and-recover exercise and what can be concluded from it (in your own words, ~500 words). Explain how the bias and squared error change with increasing N, and discuss whether the EZ diffusion model is effective in recovering its parameters.
+This simulate and recover exercise is meant to test the accuracy of the EZ Diffusion Model. The EZ Diffusion model is based off of three parameters: drift rate (v), boundary separation (a), and nondecision time (t). Ideally, if the model is implemented correctly, as your sample size increases the bias and squared error both decrease. This is indicative of having more precise estimates.
 
-a = boundary
-v = drift rate
-t = nondecision
+Bias is defined as the difference between the estimated values and the true values. With smaller sample sizes comes greater noise. This can be seen in the bias values for the N = 10 iteration. The bias values for this iteration are the largest and farthest from zero, showing that there is some error in the model’s parameter recovery. The bias at N = 40 decreases significantly, showing a growing trend of stability in the model. Finally at N = 4000 the bias values should be closest to zero, showing that the model can be precise in the estimation of parameters when there is sufficient enough data.
 
-CHECK ALL ##
+Squared error is defined as the average difference between the estimated values and the true values, measuring the precision of the estimates. The same trend can be found in the squared error values that was found in the bias values. With lower sample sizes there is more variability in the estimates, but as the sample size increases the model is able to recover parameters with significantly greater precision.
+
+The results of my model (although highly skewed) still show the correct general trend of decreasing bias and squared error as we increase the sample size. In my code I kept getting a consistent error when writing the R_obs equation. The equation is R_obs = T_obs / N. The error message was that in this equation it could not divide by zero. This means that N was set at zero even though it had already been defined as a list of 10, 40, and 4000. After implementing a workaround, the code ran but my bias and squared error values were drastically high. Despite this, they both still decreased with an increased sample size. At sample size 10 the bias was 10.9175 and the squared error was 385.7421. At sample size 40 the bias was 6.4704 and the squared error was 75.0359. At sample size 4000 the bias was 0.9723 and the squared error was 1.0755.
+
+I would argue that not only is a correct implementation of the EZ Diffusion model proof that the model is effective, but my flawed implementation of the model is also proof as well. Even though my results were highly irregular, the correct general trend was still apparent.
