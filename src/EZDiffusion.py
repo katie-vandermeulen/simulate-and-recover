@@ -1,10 +1,8 @@
 import numpy as np
 
 class EZDiffusion:
-    def parameters(self, v, a, t):
-        self.v = v
-        self.a = a
-        self.t = t
+    def __init__(self, iterations = 1000):
+        self.iterations = iterations
     
     def forward(v, a, t):
         y = np.exp(-v * a)
